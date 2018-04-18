@@ -17,7 +17,12 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+<<<<<<< HEAD
         System.out.println("No");
+=======
+
+        System.out.println("Hello");
+>>>>>>> ae7a937672e1e7ccd0d5a04095c209e564bde949
     }
 
     @Override
