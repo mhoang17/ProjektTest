@@ -20,7 +20,11 @@ public class Main extends Application {
 
         System.out.println("Hello");
         System.out.println("Yes");
+<<<<<<< HEAD
         System.out.println("Maybe");
+=======
+        System.out.println("No");
+>>>>>>> 4be7f72baf9f2f632f4c2b1f93a5e477ad255bcb
     }
 
     @Override
