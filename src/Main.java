@@ -40,14 +40,18 @@ public class Main extends Application {
 
         file.Load();
 
-        double aValue = (double) file.getyCoordinates().get(0);
+        double xValue = (double) file.getxCoordinates().get(0);
+        double yValue = (double) file.getyCoordinates().get(0);
+
         ObservableList<XYChart.Series<String, Double>> answer = FXCollections.observableArrayList();
         Series<String, Double> aSeries = new Series<String, Double>();
         aSeries.setName("a");
 
         for (int i = 0; i < file.getxCoordinates().size(); i++) {
-            aSeries.getData().add(new XYChart.Data(Double.toString(i), aValue));
-            aValue = (double) file.getyCoordinates().get(i);
+            aSeries.getData().add(new XYChart.Data(Double.toString(xValue), yValue));
+
+            xValue = (double) file.getxCoordinates().get(i);
+            yValue = (double) file.getyCoordinates().get(i);
         }
         answer.addAll(aSeries);
         return answer;
