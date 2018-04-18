@@ -30,6 +30,8 @@ public class FileReading <T> {
             yCoordinates.add(Double.parseDouble(splitted[1]));
 
             i++;
+
+            System.out.println("Hello");
         }
     }
 
