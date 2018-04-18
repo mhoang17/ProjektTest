@@ -1,37 +1,32 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileReading {
 
     public static void main(String[] args) throws IOException
     {
-
-        //Path filePath = Paths.get("TestData");
-
+        //Field
         BufferedReader reader = new BufferedReader(new FileReader("TestData"));
-
-        String line = null;
-
-        int count = 1;
+        String line;
         int i = 0;
-        int j = 0;
-        double partDouble = 0;
 
-        double[] xCoordinates = new double[10];
-        double[] yCoordinates = new double[10];
+        List<Double> xCoordinates = new ArrayList<>();
+        List<Double> yCoordinates = new ArrayList<>();
 
+        //Load data into lists
         while ((line = reader.readLine()) != null)
         {
             String[] splitted = line.split(",");
 
-            for(String part : splitted)
-            {
-                //partDouble = Double.parseDouble(part);
-                System.out.println(splitted[0]);
-                System.out.println(splitted[1]);
-            }
+            xCoordinates.add(Double.parseDouble(splitted[0]));
+            yCoordinates.add(Double.parseDouble(splitted[1]));
 
+            System.out.println(xCoordinates.get(i) + ", " + yCoordinates.get(i));
+
+            i++;
         }
     }
 }

@@ -34,8 +34,6 @@ public class Main extends Application {
 
     private ObservableList<XYChart.Series<String, Double>> getChartData() {
 
-        FileReading file = new FileReading();
-
         double aValue = 1.56;
         ObservableList<XYChart.Series<String, Double>> answer = FXCollections.observableArrayList();
         Series<String, Double> aSeries = new Series<String, Double>();
