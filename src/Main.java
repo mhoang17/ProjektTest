@@ -21,6 +21,7 @@ public class Main extends Application {
         System.out.println("Hello");
         System.out.println("Yes");
         System.out.println("No");
+        System.out.println("I hate this");
     }
 
     @Override
