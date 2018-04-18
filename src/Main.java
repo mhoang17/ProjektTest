@@ -10,6 +10,8 @@ import javafx.scene.chart.XYChart.Series;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 
 public class Main extends Application {
 
@@ -18,7 +20,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
         ScatterChart scatterChart = new ScatterChart(xAxis, yAxis);
@@ -32,16 +34,20 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    private ObservableList<XYChart.Series<String, Double>> getChartData() {
+    private ObservableList<XYChart.Series<String, Double>> getChartData() throws IOException {
 
-        double aValue = 1.56;
+        FileReading file = new FileReading("TestData");
+
+        file.Load();
+
+        double aValue = (double) file.getyCoordinates().get(0);
         ObservableList<XYChart.Series<String, Double>> answer = FXCollections.observableArrayList();
         Series<String, Double> aSeries = new Series<String, Double>();
         aSeries.setName("a");
 
-        for (int i = 2011; i < 2021; i++) {
-            aSeries.getData().add(new XYChart.Data(Integer.toString(i), aValue));
-            aValue = aValue + Math.random() - .5;
+        for (int i = 0; i < file.getxCoordinates().size(); i++) {
+            aSeries.getData().add(new XYChart.Data(Double.toString(i), aValue));
+            aValue = (double) file.getyCoordinates().get(i);
         }
         answer.addAll(aSeries);
         return answer;

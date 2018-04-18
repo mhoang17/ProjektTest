@@ -4,17 +4,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileReading {
+public class FileReading <T> {
 
-    public static void main(String[] args) throws IOException
-    {
+    private String fileName;
+    private List<Double> xCoordinates = new ArrayList<>();
+    private List<Double> yCoordinates = new ArrayList<>();
+
+    public FileReading(String fileName) {
+        this.fileName = fileName;
+    }
+
+    void Load() throws IOException {
         //Field
-        BufferedReader reader = new BufferedReader(new FileReader("TestData"));
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+
         String line;
         int i = 0;
-
-        List<Double> xCoordinates = new ArrayList<>();
-        List<Double> yCoordinates = new ArrayList<>();
 
         //Load data into lists
         while ((line = reader.readLine()) != null)
@@ -24,9 +29,16 @@ public class FileReading {
             xCoordinates.add(Double.parseDouble(splitted[0]));
             yCoordinates.add(Double.parseDouble(splitted[1]));
 
-            System.out.println(xCoordinates.get(i) + ", " + yCoordinates.get(i));
-
             i++;
         }
+    }
+
+    public List<Double> getxCoordinates() {
+
+        return xCoordinates;
+    }
+
+    public List<Double> getyCoordinates() {
+        return yCoordinates;
     }
 }
