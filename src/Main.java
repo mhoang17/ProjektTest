@@ -17,9 +17,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        System.out.println("whyyyyyyyyyy");
-        System.out.println("Please work");
-        System.out.println("Please");
     }
 
     @Override
